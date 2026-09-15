@@ -8,48 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function fetchActivities() {
     try {
       const response = await fetch("/activities");
-      const activities = {
-        ...(await response.json()),
-        // Sports activities (2)
-        "Basketball Club": {
-          description: "Practice basketball skills and play friendly team games.",
-          schedule: "Mondays, 4:00 PM - 5:30 PM",
-          max_participants: 20,
-          participants: [],
-        },
-        "Tennis Club": {
-          description: "Learn tennis fundamentals through drills and matches.",
-          schedule: "Wednesdays, 4:00 PM - 5:30 PM",
-          max_participants: 16,
-          participants: [],
-        },
-        // Artistic activities (2)
-        "Painting Workshop": {
-          description: "Explore painting techniques and create original artwork.",
-          schedule: "Tuesdays, 3:30 PM - 5:00 PM",
-          max_participants: 15,
-          participants: [],
-        },
-        "Drama Club": {
-          description: "Develop acting skills through improvisation and performances.",
-          schedule: "Thursdays, 4:00 PM - 5:30 PM",
-          max_participants: 18,
-          participants: [],
-        },
-        // Intellectual activities (2)
-        "Chess Club": {
-          description: "Study chess strategies and compete in friendly matches.",
-          schedule: "Fridays, 3:30 PM - 5:00 PM",
-          max_participants: 20,
-          participants: [],
-        },
-        "Debate Society": {
-          description: "Build critical-thinking and public-speaking skills through debate.",
-          schedule: "Wednesdays, 3:30 PM - 5:00 PM",
-          max_participants: 16,
-          participants: [],
-        },
-      };
+      const activities = await response.json();
 
       // Clear loading message
       activitiesList.innerHTML = "";
